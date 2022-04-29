@@ -16,6 +16,8 @@ namespace ConsoleApp1
             double point;
             string groupno;
             int studentlimit;
+            bool dayan = true;
+
             do
             {
                 Console.WriteLine("Passwordu daxil et");
@@ -72,33 +74,7 @@ namespace ConsoleApp1
 
                     case "3":
 
-                        Console.WriteLine("1. Show all students");
-                        Console.WriteLine("2. Get student by id");
-                        Console.WriteLine("3. Add student");
-                        Console.WriteLine("0. Quit");
-                        bool dayan = true;
-                        do
-                        {
-                            string sech = Console.ReadLine();
-                            switch (sech)
-                            {
-                                case "1":
-                                    group.GetAllStudent();
-                                    break;
-                                case "2":
-                                    id = Convert.ToInt32(Console.ReadLine());
-                                    group.GetStudentByid(id);
-                                    break;
-                                case "3":
-                                    group.AddStudent(student);
-                                    break;
-                                case "4":
-                                    dayan = false;
-                                    break;
-                                default:
-                                    break;
-                            }
-                        } while (dayan);
+                        Menu3();
 
                         break;
                     default:
@@ -135,5 +111,35 @@ namespace ConsoleApp1
             return false;
         }
 
+        public static void Menu3()
+        {
+            int id = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("1. Show all students");
+            Console.WriteLine("2. Get student by id");
+            Console.WriteLine("3. Add student");
+            Console.WriteLine("0. Quit");
+            do
+            {
+                string sech = Console.ReadLine();
+                switch (sech)
+                {
+                    case "1":
+                        group.GetAllStudent();
+                        break;
+                    case "2":
+                        id = Convert.ToInt32(Console.ReadLine());
+                        group.GetStudentByid(id);
+                        break;
+                    case "3":
+                        group.AddStudent(student);
+                        break;
+                    case "4":
+                        dayan = false;
+                        break;
+                    default:
+                        break;
+                }
+            } while (dayan);
+        }
     }
 }
